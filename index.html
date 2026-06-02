@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<meta name="theme-color" content="#003366">
+<meta name="description" content="การประชุมวิชาการทันตสาธารณสุขแห่งชาติ ครั้งที่ 12">
+
+<title>การประชุมวิชาการทันตสาธารณสุขแห่งชาติ ครั้งที่ 12</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+/* ═══════════════════════════════════════════
+   CSS Variables & Reset
+═══════════════════════════════════════════ */
+
+:root {
+  --primary:   #003366;
+  --secondary: #005baa;
+  --accent:    #00a8e8;
+  --light:     #eef5ff;
+  --bg:        #f4f7fb;
+  --card-shadow: 0 6px 24px rgba(0, 51, 102, .10);
+}
+
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Prompt', sans-serif;
+  background: var(--bg);
+  color: #222;
+  line-height: 1.6;
+  overflow-x: hidden;
+  width: 100%;
+  min-height: 100vh;
+}
+
+/* ═══════════════════════════════════════════
+   Banner
+═══════════════════════════════════════════ */
+
+.header-banner {
+  width: 100%;
+  background: var(--primary);   /* fallback สีเข้มขณะรูปโหลด */
+  overflow: hidden;
+  min-height: 80px;
+}
+
+/* วิธีที่ 1: thumbnail URL — รองรับกว้างสุด */
+.header-banner img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+/* ═══════════════════════════════════════════
+   Marquee (วิ่งลื่น ไม่กระตุก)
+═══════════════════════════════════════════ */
+
+.marquee {
+  overflow: hidden;
+  background: linear-gradient(90deg, var(--primary), var(--secondary));
+  color: #fff;
+  padding: 11px 0;
+  width: 100%;
+}
+
+/* ซ้ำเนื้อหา 2 ชุด → translateX(-50%) วนไม่มีสะดุด */
+.marquee-inner {
+  display: flex;
+  width: max-content;
+  animation: ticker 40s linear infinite;
+}
+
+.marquee:hover .marquee-inner {
+  animation-play-state: paused;
+}
+
+.marquee-inner span {
+  white-space: nowrap;
+  padding-right: 80px;
+  font-size: 14px;
+  letter-spacing: .01em;
+}
+
+@keyframes ticker {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* ═══════════════════════════════════════════
+   Hero
+═══════════════════════════════════════════ */
+
+.hero {
+  text-align: center;
+  color: #fff;
+  padding: 40px 24px 44px;
+  background: linear-gradient(135deg, var(--primary), var(--secondary), var(--accent));
+  border-radius: 0 0 24px 24px;
+  box-shadow: 0 8px 20px rgba(0,0,0,.18);
+}
+
+.hero h1 {
+  font-size: clamp(18px, 4.5vw, 40px);
+  font-weight: 600;
+  line-height: 1.45;
+  letter-spacing: -.01em;
+}
+
+.hero p {
+  margin-top: 10px;
+  font-size: clamp(13px, 2.2vw, 17px);
+  opacity: .88;
+  font-weight: 300;
+}
+
+/* ═══════════════════════════════════════════
+   Sections
+═══════════════════════════════════════════ */
+
+.section {
+  padding: 52px 5%;
+  width: 100%;
+}
+
+.section.alt {
+  background: var(--light);
+}
+
+.section-title {
+  text-align: center;
+  font-size: clamp(20px, 3.5vw, 28px);
+  font-weight: 600;
+  color: var(--primary);
+  margin-bottom: 32px;
+  position: relative;
+}
+
+/* เส้นใต้ชื่อ section */
+.section-title::after {
+  content: '';
+  display: block;
+  width: 52px;
+  height: 3px;
+  background: var(--accent);
+  border-radius: 2px;
+  margin: 10px auto 0;
+}
+
+/* ═══════════════════════════════════════════
+   Grid & Cards
+═══════════════════════════════════════════ */
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 210px), 1fr));
+  gap: 20px;
+  width: 100%;
+}
+
+.card {
+  background: #fff;
+  border-radius: 18px;
+  padding: 28px 20px 24px;
+  text-align: center;
+  box-shadow: var(--card-shadow);
+  transition: transform .25s ease, box-shadow .25s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 14px 36px rgba(0, 51, 102, .16);
+}
+
+.card-icon {
+  font-size: 38px;
+  margin-bottom: 12px;
+  line-height: 1;
+}
+
+.card h3 {
+  color: var(--primary);
+  font-size: clamp(14px, 2vw, 16px);
+  font-weight: 600;
+  margin-bottom: 8px;
+  line-height: 1.4;
+}
+
+.card p {
+  color: #666;
+  font-size: 13px;
+  margin-bottom: 14px;
+  flex: 1;          /* ดัน link ลงล่างให้เท่ากัน */
+}
+
+/* ปุ่มลิงก์ */
+.card a {
+  display: inline-block;
+  text-decoration: none;
+  color: #fff;
+  background: var(--secondary);
+  padding: 8px 18px;
+  border-radius: 50px;
+  font-size: 13px;
+  font-weight: 500;
+  transition: background .2s, transform .2s;
+  margin-top: auto;
+  white-space: nowrap;
+}
+
+.card a:hover {
+  background: var(--accent);
+  transform: scale(1.04);
+}
+
+/* card ที่ยังไม่มีลิงก์ */
+.card a[href="#"] {
+  background: #bbb;
+  cursor: default;
+  pointer-events: none;
+}
+
+/* ═══════════════════════════════════════════
+   Footer
+═══════════════════════════════════════════ */
+
+footer {
+  margin-top: 16px;
+  padding: 28px 20px;
+  text-align: center;
+  background: var(--primary);
+  color: rgba(255,255,255,.85);
+  font-size: 13px;
+  line-height: 1.9;
+}
+
+/* ═══════════════════════════════════════════
+   Responsive — Mobile ≤ 600px
+═══════════════════════════════════════════ */
+
+@media (max-width: 600px) {
+
+  .section { padding: 36px 14px; }
+
+  .grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+
+  .card {
+    padding: 18px 12px 16px;
+    border-radius: 14px;
+  }
+
+  .card-icon { font-size: 30px; }
+
+  .card a {
+    padding: 7px 14px;
+    font-size: 12px;
+  }
+
+  .marquee-inner span { font-size: 13px; }
+
+}
+
+/* จอเล็กมาก ≤ 360px (Galaxy Fold ฯลฯ) */
+@media (max-width: 360px) {
+  .grid { grid-template-columns: 1fr; }
+  .hero { padding: 30px 14px 36px; }
+}
+
+/* เพิ่ม touch target บนอุปกรณ์ที่ไม่มี hover */
+@media (hover: none) {
+  .card a { padding: 10px 18px; }
+}
+
+</style>
+</head>
+<body>
+
+<!-- ░░ BANNER ░░
+     ใช้ thumbnail URL ของ Google Drive (format ปัจจุบันที่ยังใช้ได้)
+     sz=w1600 → ขนาดพอดีกับทุกจอ                                     -->
+<div class="header-banner">
+  <img
+    src="https://drive.google.com/thumbnail?id=1srxgC5L5YvWFN6eMRrRCedOrMwr9J6wt&sz=w1600"
+    alt="การประชุมวิชาการทันตสาธารณสุขแห่งชาติ ครั้งที่ 12"
+    loading="eager"
+    onerror="this.style.display='none'">
+</div>
+
+<!-- ░░ MARQUEE ░░ -->
+<div class="marquee" aria-live="polite" aria-label="ข่าวประชาสัมพันธ์">
+  <div class="marquee-inner">
+    <!-- ชุดที่ 1 -->
+    <span>📢 เปิดให้ลงทะเบียนวันนี้ ถึง 20 มิถุนายน 2569&ensp;|&ensp;ประกาศผลคัดเลือกผลงานวิชาการ 13 พฤษภาคม 2569&emsp;&emsp;📢 กรณีสำรองห้องพักด้วยตนเอง โรงแรมรามา การ์เด้นส์ โทร. 02-558-7888&emsp;&emsp;</span>
+    <!-- ชุดที่ 2 (ซ้ำ → animation วนลื่นไหล) -->
+    <span>📢 เปิดให้ลงทะเบียนวันนี้ ถึง 20 มิถุนายน 2569&ensp;|&ensp;ประกาศผลคัดเลือกผลงานวิชาการ 13 พฤษภาคม 2569&emsp;&emsp;📢 กรณีสำรองห้องพักด้วยตนเอง โรงแรมรามา การ์เด้นส์ โทร. 02-558-7888&emsp;&emsp;</span>
+  </div>
+</div>
+
+<!-- ░░ HERO ░░ -->
+<section class="hero">
+  <h1>
+    สุขภาพช่องปากตลอด 24 ชั่วโมง :<br>
+    ดูแลทุกช่วงวัย...ใส่ใจทุกช่วงวัน
+  </h1>
+  <p>24 Hours of Oral Health : Wellness from AM to PM</p>
+</section>
+
+<!-- ░░ งานทะเบียนและประเมินผล ░░ -->
+<section class="section">
+  <div class="section-title">งานทะเบียนและประเมินผล</div>
+  <div class="grid">
+
+    <div class="card">
+      <div class="card-icon">📝</div>
+      <h3>ลงทะเบียน</h3>
+      <p>ลงทะเบียนเข้าร่วมประชุม</p>
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSc6QKf5hinu356cGdloO6e41Q-9UI1QNvRPSrmYP2jS8RQytA/viewform" target="_blank" rel="noopener">เข้าสู่ระบบ →</a>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">🔍</div>
+      <h3>ตรวจสอบสถานะ</h3>
+      <p>ตรวจสอบและยืนยันข้อมูลลงทะเบียน</p>
+      <a href="https://moph.link/Check-DPHC-12" target="_blank" rel="noopener">ตรวจสอบ →</a>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">📑</div>
+      <h3>เอกสารเบิกจ่าย</h3>
+      <p>รายละเอียดชี้แจงการเบิกจ่าย</p>
+      <a href="https://drive.google.com/drive/u/1/folders/127-vz5-8Sb7il1Z8SuJdE3V9ChoyMAX4" target="_blank" rel="noopener">ดูรายละเอียด →</a>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">✉️</div>
+      <h3>หนังสือเชิญ</h3>
+      <p>หนังสือเชิญเข้าร่วมประชุม</p>
+      <a href="https://drive.google.com/drive/folders/1DwMKWqxYuww-9tQlCgX15XJgD1O7lCjT" target="_blank" rel="noopener">ดาวน์โหลด →</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- ░░ งานวิชาการ ░░ -->
+<section class="section alt">
+  <div class="section-title">งานวิชาการ</div>
+  <div class="grid">
+
+    <div class="card">
+      <div class="card-icon">📤</div>
+      <h3>ส่งผลงานวิชาการ</h3>
+      <p>หมดเขต 15 เมษายน 2569</p>
+      <a href="https://dental.anamai.moph.go.th/th/submitwork2026/" target="_blank" rel="noopener">ส่งผลงาน →</a>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">🏆</div>
+      <h3>ประกาศผล</h3>
+      <p>ประกาศผลคัดเลือก</p>
+      <a href="https://dental.anamai.moph.go.th/th/selection-results/" target="_blank" rel="noopener">ดูผล →</a>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">🎤</div>
+      <h3>ลำดับการนำเสนอ</h3>
+      <p>กำลังดำเนินการ</p>
+      <a href="#">เร็วๆ นี้</a>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">📚</div>
+      <h3>บทคัดย่อผลงาน</h3>
+      <p>กำลังดำเนินการ</p>
+      <a href="#">เร็วๆ นี้</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- ░░ ข้อมูลการประชุม ░░ -->
+<section class="section">
+  <div class="section-title">ข้อมูลการประชุม</div>
+  <div class="grid">
+
+    <div class="card">
+      <div class="card-icon">📅</div>
+      <h3>กำหนดการประชุม</h3>
+      <p>กำลังดำเนินการ</p>
+      <a href="#">เร็วๆ นี้</a>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">📍</div>
+      <h3>สถานที่จัดประชุม</h3>
+      <p>โรงแรมรามา การ์เด้นส์ กรุงเทพฯ</p>
+      <a href="https://dental.anamai.moph.go.th/th/venue-12/" target="_blank" rel="noopener">ดูสถานที่ →</a>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">🖼️</div>
+      <h3>ประมวลภาพ</h3>
+      <p>กำลังดำเนินการ</p>
+      <a href="#">เร็วๆ นี้</a>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">🎥</div>
+      <h3>ภาพข่าวกิจกรรม</h3>
+      <p>กำลังดำเนินการ</p>
+      <a href="#">เร็วๆ นี้</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- ░░ งานเอกสาร ░░ -->
+<section class="section alt">
+  <div class="section-title">งานเอกสาร</div>
+  <div class="grid">
+
+    <div class="card">
+      <div class="card-icon">🗂️</div>
+      <h3>เอกสารประกอบการประชุม</h3>
+      <p>กำลังดำเนินการ</p>
+      <a href="#">เร็วๆ นี้</a>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">🦷</div>
+      <h3>CDEC</h3>
+      <p>หน่วยคะแนนการศึกษาต่อเนื่อง</p>
+      <a href="#">เร็วๆ นี้</a>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">📊</div>
+      <h3>ประเมินผล</h3>
+      <p>แบบประเมินความพึงพอใจ</p>
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSe5w5Bu6JA9GBOzXvwCILmwXmHWcNjO1kZZgOA9TdnRb3zSdQ/viewform" target="_blank" rel="noopener">ทำแบบประเมิน →</a>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">📑</div>
+      <h3>รายงานสรุปการประชุม</h3>
+      <p>กำลังดำเนินการ</p>
+      <a href="#">เร็วๆ นี้</a>
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 กรมอนามัย กระทรวงสาธารณสุข</p>
+  <p>การประชุมวิชาการทันตสาธารณสุขแห่งชาติ ครั้งที่ 12</p>
+</footer>
+
+</body>
+</html>
